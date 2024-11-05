@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S3 File Browser with Enhanced User Experience</title>
+    <title>Global Carbon Budget Data Browser</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +14,25 @@
         h1 {
             text-align: center;
             color: #333;
-            margin-top: 20px;
+            margin-top: 10px;
+        }
+        .intro-text {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            font-size: 1em;
+            line-height: 1.5em;
+            color: #333;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .intro-text a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .intro-text a:hover {
+            text-decoration: underline;
         }
         #search-container {
             text-align: center;
@@ -109,6 +127,23 @@
 </head>
 <body>
     <h1>Global Carbon Budget Data Browser</h1>
+    
+    <div class="intro-text">
+        Welcome to the data hub for the <a href="https://globalcarbonbudget.org/" target="_blank">Global Carbon Budget</a>. Here you will be able to view and download the data behind the report.
+        <br><br>
+        The <a href="https://globalcarbonbudget.org/download/933/?tmstv=1701441499" target="_blank">global summary data</a> for all components of the budget, 
+        <a href="https://globalcarbonbudget.org/download/936/?tmstv=1701441540" target="_blank">national fossil fuel emissions</a>, 
+        and <a href="https://globalcarbonbudget.org/download/939/?tmstv=1701441574" target="_blank">land-use and land-cover change emissions</a> are freely available.
+        <br><br>
+        The raw land and ocean model data from the latest report is freely available upon request at 
+        <a href="https://globalcarbonbudgetdata.org/closed-access-requests.html" target="_blank">https://globalcarbonbudgetdata.org/closed-access-requests.html</a>.
+        <br><br>
+        On this page, you will find all land (trendy) and ocean model output from previous budgets.
+        <br><br>
+        For any issues/enquires, please contact Mike O'Sullivan (m.osullivan@exeter.ac.uk)
+    </div>
+    
+    
     <div id="search-container">
         <input type="text" id="search" placeholder="Search files (e.g., 'trendyv10 nbp')" oninput="filterFiles()">
         <button id="searchModeToggle" onclick="toggleSearchMode()">Mode: Any</button>
