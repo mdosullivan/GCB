@@ -124,8 +124,8 @@
             100% { transform: rotate(360deg); }
         }
     </style>
-
-<!-- Google tag (gtag.js) -->
+    
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-63FP0FJM6N"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -133,6 +133,14 @@
   gtag('js', new Date());
 
   gtag('config', 'G-63FP0FJM6N');
+  
+  function trackDownloadEvent() {
+      gtag('event', 'download', {
+          'event_category': 'Scripts',
+          'event_label': 'wget_script',
+          'value': 1
+      });
+  }
 </script>
     
 </head>
@@ -146,7 +154,7 @@
         <a href="https://globalcarbonbudget.org/download/936/?tmstv=1701441540" target="_blank">national fossil fuel emissions</a>, 
         and <a href="https://globalcarbonbudget.org/download/939/?tmstv=1701441574" target="_blank">land-use and land-cover change emissions</a> are freely available.
         <br><br>
-        The raw land and ocean model data from the latest report is available upon request at 
+        The raw land and ocean model data from the latest report is freely available upon request at 
         <a href="https://globalcarbonbudgetdata.org/closed-access-requests.html" target="_blank">https://globalcarbonbudgetdata.org/closed-access-requests.html</a>.
         <br><br>
         On this page, you will find all land (trendy) and ocean model output from previous budgets.
@@ -159,7 +167,7 @@
         <input type="text" id="search" placeholder="Search files (e.g., 'trendyv10 nbp')" oninput="filterFiles()">
         <button id="searchModeToggle" onclick="toggleSearchMode()">Mode: Any</button>
     </div>
-    <button id="downloadScript" onclick="generateWgetScript()">Download wget Script for Searched Files</button>
+    <button id="downloadScript" onclick="generateWgetScript(); trackDownloadEvent();">Download wget Script for Searched Files</button>
     <div id="fileTree">
         <div class="spinner" id="loadingSpinner"></div>
     </div>
@@ -299,4 +307,3 @@
     </script>
 </body>
 </html>
-
