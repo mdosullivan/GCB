@@ -150,16 +150,9 @@
     <div class="intro-text">
         Welcome to the data hub for the <a href="https://globalcarbonbudget.org/" target="_blank">Global Carbon Budget</a>. Here you will be able to view and download the data behind the report.
         <br><br>
-        The <a href="https://globalcarbonbudget.org/download/933/?tmstv=1701441499" target="_blank">global summary data</a> for all components of the budget, 
-        <a href="https://globalcarbonbudget.org/download/936/?tmstv=1701441540" target="_blank">national fossil fuel emissions</a>, 
-        and <a href="https://globalcarbonbudget.org/download/939/?tmstv=1701441574" target="_blank">land-use and land-cover change emissions</a> are freely available.
+        The global and country level (carbon emissions and sinks) summary spreadsheets as well as data use statements can be found at the GCB webpage <a href="https://globalcarbonbudget.org/data-hub/the-latest-gcb-data/" target="_blank">here</a>.
         <br><br>
-        The raw land and ocean model data from the latest report is freely available upon request at 
-        <a href="https://globalcarbonbudgetdata.org/closed-access-requests.html" target="_blank">https://globalcarbonbudgetdata.org/closed-access-requests.html</a>.
-        <br><br>
-        On this page, you will find all land (trendy) and ocean model output from previous budgets.
-        <br><br>
-        Find GCB2023 TRENDYv12 country level DGVM land data <a href="https://drive.google.com/file/d/1CyqPza9C0CfMYCB-y25MmpVtoYigzg-h/view?usp=sharing" target="_blank">here</a>.
+        On this page, you will find all land (trendy) and ocean model output from current and previous budgets.
         <br><br>
         For any issues/enquires, please contact Mike O'Sullivan (m.osullivan@exeter.ac.uk)
     </div>
@@ -175,8 +168,24 @@
     </div>
 
     <script>
-        const bucketUrl = 'https://gcbo-opendata.s3.eu-west-2.amazonaws.com';
-        const fileTree = document.getElementById('fileTree');
+        const sourceUrls = {
+           aws: 'https://gcbo-opendata.s3.eu-west-2.amazonaws.com/',
+           wasabi_land: 'https://s3.eu-west-1.wasabisys.com/gcb-2025-upload/land/output/',
+           wasabi_ocean: 'https://s3.eu-west-1.wasabisys.com/gcb-2025-upload/ocean/output/'
+        };
+
+        function getSourceUrl(fileName) {
+          // Files from Wasabi start with trendyv14-gcb2025/
+          if (fileName.startsWith('trendyv14-gcb2025/')) {
+            return sourceUrls.wasabi_land;
+          }
+          if (fileName.startsWith('ocean-GCB25/')) {
+            return sourceUrls.wasabi_ocean;
+          }
+          return sourceUrls.aws;
+        }
+
+	const fileTree = document.getElementById('fileTree');
         const loadingSpinner = document.getElementById('loadingSpinner');
         let files = [];
         let filteredFiles = [];
@@ -185,7 +194,7 @@
         async function fetchFiles() {
             try {
                 loadingSpinner.style.display = 'block';
-                const response = await fetch('https://raw.githubusercontent.com/mdosullivan/GCB/main/fileIndex.json');
+                const response = await fetch('https://raw.githubusercontent.com/mdosullivan/GCB/main/fileIndex_merged.json');
                 if (!response.ok) throw new Error('Could not fetch file index.');
 
                 const fileList = await response.json();
@@ -235,7 +244,19 @@
                 for (const [key, value] of Object.entries(node)) {
                     if (key === 'files') {
                         value.forEach(file => {
-                            const fullPath = `${bucketUrl}/${path}${file}`;
+                            let cleanPath = path + file;
+
+                            // Remove trendyv14-gcb2025 prefix when building Wasabi links
+                            if (cleanPath.startsWith('trendyv14-gcb2025/')) {
+                              cleanPath = cleanPath.replace('trendyv14-gcb2025/', '');
+                            }
+                            if (cleanPath.startsWith('ocean-GCB25/')) {
+                              cleanPath = cleanPath.replace('ocean-GCB25/', '');
+                            }
+
+                            // Build final full URL
+                            const fullPath = `${getSourceUrl(path)}${cleanPath}`;
+                            
                             const fileData = filteredFiles.find(f => f.name === `${path}${file}`);
                             const fileSize = fileData ? fileData.size : 'Unknown';
                             const fileModified = fileData ? fileData.lastModified : 'Unknown';
