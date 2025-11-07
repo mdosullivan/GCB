@@ -45,6 +45,20 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+        #searchButton {
+            margin-left: 10px;
+  	    padding: 0.5em;
+  	    font-size: 1em;
+  	    cursor: pointer;
+  	    background-color: #28a745;
+  	    color: white;
+  	    border: none;
+  	    border-radius: 5px;
+  	    transition: background-color 0.3s;
+	}
+	#searchButton:hover {
+   	    background-color: #218838;
+        }
         #searchModeToggle {
             margin-left: 10px;
             padding: 0.5em;
@@ -234,7 +248,8 @@
 </div>
     
     <div id="search-container">
-        <input type="text" id="search" placeholder="Search files (e.g., 'trendyv10 nbp')" oninput="filterFiles()">
+        <input type="text" id="search" placeholder="Search files (e.g., 'trendyv10 nbp')">
+        <button id="searchButton" onclick="filterFiles()">Search</button>
         <button id="searchModeToggle" onclick="toggleSearchMode()">Mode: Any</button>
     </div>
     <button id="downloadScript" onclick="generateWgetScript(); trackDownloadEvent();">Download wget Script for Searched Files</button>
@@ -265,7 +280,7 @@
         let files = [];
         let filteredFiles = [];
         let searchMode = 'any'; // Default to "any" mode
-
+        
         async function fetchFiles() {
             try {
                 loadingSpinner.style.display = 'block';
@@ -374,11 +389,21 @@
             renderFileTree(filteredFiles);
         }
 
+  
+        // Allow pressing Enter to trigger search
+        document.getElementById('search').addEventListener('keydown', function(event) {
+          if (event.key === 'Enter') {
+            filterFiles();
+          }
+        });
+
         function toggleSearchMode() {
             searchMode = searchMode === 'any' ? 'all' : 'any';
             document.getElementById('searchModeToggle').textContent = `Mode: ${searchMode.charAt(0).toUpperCase() + searchMode.slice(1)}`;
             filterFiles(); // Re-run the filter with the new mode
         }
+
+
 
         function generateWgetScript() {
             if (filteredFiles.length === 0) {
