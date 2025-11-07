@@ -250,7 +250,7 @@
     <div id="search-container">
         <input type="text" id="search" placeholder="Search files (e.g., 'trendyv10 nbp')">
         <button id="searchButton" onclick="filterFiles()">Search</button>
-        <button id="searchModeToggle" onclick="toggleSearchMode()">Mode: Any</button>
+        <button id="searchModeToggle" onclick="toggleSearchMode()">Mode: Or</button>
     </div>
     <button id="downloadScript" onclick="generateWgetScript(); trackDownloadEvent();">Download wget Script for Searched Files</button>
     <div id="fileTree">
@@ -279,7 +279,7 @@
         const loadingSpinner = document.getElementById('loadingSpinner');
         let files = [];
         let filteredFiles = [];
-        let searchMode = 'any'; // Default to "any" mode
+        let searchMode = 'or'; // Default to "or" mode
         
         async function fetchFiles() {
             try {
@@ -380,9 +380,9 @@
         function filterFiles() {
             const searchTerms = document.getElementById('search').value.toLowerCase().split(" ");
             filteredFiles = files.filter(({ name }) => {
-                if (searchMode === 'any') {
+                if (searchMode === 'or') {
                     return searchTerms.some(term => name.toLowerCase().includes(term));
-                } else { // "all" mode
+                } else { // "and" mode
                     return searchTerms.every(term => name.toLowerCase().includes(term));
                 }
             });
@@ -398,7 +398,7 @@
         });
 
         function toggleSearchMode() {
-            searchMode = searchMode === 'any' ? 'all' : 'any';
+            searchMode = searchMode === 'or' ? 'and' : 'or';
             document.getElementById('searchModeToggle').textContent = `Mode: ${searchMode.charAt(0).toUpperCase() + searchMode.slice(1)}`;
             filterFiles(); // Re-run the filter with the new mode
         }
