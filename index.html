@@ -250,7 +250,7 @@
     <div id="search-container">
         <input type="text" id="search" placeholder="Search files (e.g., 'trendyv10 nbp')">
         <button id="searchButton" onclick="filterFiles()">Search</button>
-        <button id="searchModeToggle" onclick="toggleSearchMode()">Mode: Or</button>
+        <button id="searchModeToggle" onclick="toggleSearchMode()">Mode: OR</button>
     </div>
     <button id="downloadScript" onclick="generateWgetScript(); trackDownloadEvent();">Download wget Script for Searched Files</button>
     <div id="fileTree">
@@ -397,11 +397,21 @@
           }
         });
 
-        function toggleSearchMode() {
-            searchMode = searchMode === 'or' ? 'and' : 'or';
-            document.getElementById('searchModeToggle').textContent = `Mode: ${searchMode.charAt(0).toUpperCase() + searchMode.slice(1)}`;
-            filterFiles(); // Re-run the filter with the new mode
-        }
+ //       function toggleSearchMode() {
+ //          searchMode = searchMode === 'or' ? 'and' : 'or';
+ //           document.getElementById('searchModeToggle').textContent = `Mode: ${searchMode.charAt(0).toUpperCase() + searchMode.slice(1)}`;
+ //           filterFiles(); // Re-run the filter with the new mode
+ //      }
+
+function toggleSearchMode() {
+    if (searchMode === 'or') searchMode = 'and';
+    else searchMode = 'or';
+
+    const modeText = searchMode.toUpperCase();
+    document.getElementById('searchModeToggle').textContent = `Mode: ${modeText}`;
+
+    filterFiles();
+}
 
 
 
