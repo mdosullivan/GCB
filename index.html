@@ -261,7 +261,8 @@
         const sourceUrls = {
            aws: 'https://gcbo-opendata.s3.eu-west-2.amazonaws.com/',
            wasabi_land: 'https://s3.eu-west-1.wasabisys.com/gcb-2025-upload/land/output/',
-           wasabi_ocean: 'https://s3.eu-west-1.wasabisys.com/gcb-2025-upload/ocean/output/'
+           wasabi_ocean: 'https://s3.eu-west-1.wasabisys.com/gcb-2025-upload/ocean/output/',
+           wasabi_land_2024: 'https://s3.eu-west-1.wasabisys.com/gcb-2024-trendy/'
         };
 
         function getSourceUrl(fileName) {
@@ -269,11 +270,29 @@
           if (fileName.startsWith('trendyv14-gcb2025/')) {
             return sourceUrls.wasabi_land;
           }
+          if (fileName.startsWith('trendyv13-gcb2024/')) {
+            return sourceUrls.wasabi_land;
+          }
           if (fileName.startsWith('ocean-GCB25/')) {
             return sourceUrls.wasabi_ocean;
           }
           return sourceUrls.aws;
         }
+        
+        function buildFullUrl(name) {
+     let cleanPath = name;
+
+  if (cleanPath.startsWith('trendyv14-gcb2025/')) {
+    cleanPath = cleanPath.replace('trendyv14-gcb2025/', '');
+  } else if (cleanPath.startsWith('trendyv13-gcb2024/')) {
+    cleanPath = cleanPath.replace('trendyv13-gcb2024/', '');
+  } else if (cleanPath.startsWith('ocean-GCB25/')) {
+    cleanPath = cleanPath.replace('ocean-GCB25/', '');
+  }
+
+  return `${getSourceUrl(name)}${cleanPath}`;
+}
+
 
 	const fileTree = document.getElementById('fileTree');
         const loadingSpinner = document.getElementById('loadingSpinner');
@@ -345,7 +364,9 @@
                             }
 
                             // Build final full URL
-                            const fullPath = `${getSourceUrl(path)}${cleanPath}`;
+                           // const fullPath = `${getSourceUrl(path)}${cleanPath}`;
+                            const fullPath = buildFullUrl(`${path}${file}`);
+
                             
                             const fileData = filteredFiles.find(f => f.name === `${path}${file}`);
                             const fileSize = fileData ? fileData.size : 'Unknown';
@@ -423,7 +444,8 @@ function toggleSearchMode() {
 
             let scriptContent = '#!/bin/bash\n\n';
             filteredFiles.forEach(({ name }) => {
-                const url = `${bucketUrl}/${name}`;
+            //    const url = `${bucketUrl}/${name}`;
+                  const url = buildFullUrl(name);
                 scriptContent += `wget "${url}"\n`;
             });
 
