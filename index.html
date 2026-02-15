@@ -303,7 +303,7 @@
         async function fetchFiles() {
             try {
                 loadingSpinner.style.display = 'block';
-                const response = await fetch('https://raw.githubusercontent.com/mdosullivan/GCB/main/fileIndex_merged_noOcean25.json');
+                const response = await fetch('https://raw.githubusercontent.com/mdosullivan/GCB/main/fileIndex_merged_noOcean25_v2.json');
                 if (!response.ok) throw new Error('Could not fetch file index.');
 
                 const fileList = await response.json();
