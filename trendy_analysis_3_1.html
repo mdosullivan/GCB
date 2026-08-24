@@ -2119,1308 +2119,21 @@ sland_m3 &lt;- wide |&gt;
 # every variable, PLUS Method 3 for SLAND where RSS data exists.
 extended_long &lt;- bind_rows(derived_long, sland_m3)
 
-# Which models actually contribute data to each variable/method?
-extended_long |&gt;
-  distinct(Variable, Method, Model) |&gt;
-  arrange(Variable, Method, Model) |&gt;
-  kable(caption = &quot;Models currently contributing to each term/method&quot;) |&gt;
-  kable_styling(full_width = FALSE)</code></pre>
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-Models currently contributing to each term/method
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-Variable
-</th>
-<th style="text-align:left;">
-Method
-</th>
-<th style="text-align:left;">
-Model
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-CABLE-POP
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-CLASSIC
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-DLEM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-EDv3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-IBIS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-ISAM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-JULES
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPJ-EOSIM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPJ-GUESS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPJml
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPX
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-VISIT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-VISIT-UT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-iMAPLE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-CABLE-POP
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-CLASSIC
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-DLEM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-EDv3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-IBIS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-ISAM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-JULES
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPJ-EOSIM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPJ-GUESS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPJml
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPX
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-VISIT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-VISIT-UT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CO2 fertilisation
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-iMAPLE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-CABLE-POP
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-CLASSIC
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-DLEM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-EDv3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-IBIS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-ISAM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-JULES
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPJ-EOSIM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPJ-GUESS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPJml
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPX
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-VISIT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-VISIT-UT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-iMAPLE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-CABLE-POP
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-CLASSIC
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-DLEM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-EDv3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-IBIS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-ISAM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-JULES
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPJ-EOSIM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPJ-GUESS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPJml
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPX
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-VISIT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-VISIT-UT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Climate effect
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-iMAPLE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-CABLE-POP
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-CLASSIC
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-DLEM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-EDv3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-IBIS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-ISAM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-JULES
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPJ-EOSIM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPJ-GUESS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPJml
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPX
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-VISIT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-VISIT-UT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-iMAPLE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-CABLE-POP
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-CLASSIC
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-DLEM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-EDv3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-IBIS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-ISAM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-JULES
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPJ-EOSIM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPJ-GUESS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPJml
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPX
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-VISIT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-VISIT-UT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ELUC
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-iMAPLE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-CABLE-POP
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-CLASSIC
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-DLEM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-EDv3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-IBIS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-ISAM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-JULES
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPJ-EOSIM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPJ-GUESS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPJml
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-LPX
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-VISIT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-VISIT-UT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 1
-</td>
-<td style="text-align:left;">
-iMAPLE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-CABLE-POP
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-CLASSIC
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-DLEM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-EDv3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-IBIS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-ISAM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-JULES
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPJ-EOSIM
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPJ-GUESS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPJml
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-LPX
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-VISIT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-VISIT-UT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 2
-</td>
-<td style="text-align:left;">
-iMAPLE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 3 (RSS-corrected)
-</td>
-<td style="text-align:left;">
-CLASSIC
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 3 (RSS-corrected)
-</td>
-<td style="text-align:left;">
-IBIS
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 3 (RSS-corrected)
-</td>
-<td style="text-align:left;">
-VISIT
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SLAND
-</td>
-<td style="text-align:left;">
-Method 3 (RSS-corrected)
-</td>
-<td style="text-align:left;">
-iMAPLE
-</td>
-</tr>
-</tbody>
-</table>
+# # Which models actually contribute data to each variable/method?
+# extended_long |&gt;
+#   distinct(Variable, Method, Model) |&gt;
+#   mutate(
+#     Variable = factor(Variable, levels = c(&quot;CO2 fertilisation&quot;, &quot;Climate effect&quot;, &quot;ELUC&quot;, &quot;SLAND&quot;)),
+#     Method = factor(Method, levels = c(&quot;Method 1&quot;, &quot;Method 2&quot;, &quot;Method 3 (RSS-corrected)&quot;)),
+#     contributes = &quot;x&quot;
+#   ) |&gt;
+#   arrange(Variable, Method) |&gt;
+#   pivot_wider(id_cols = Model, names_from = c(Variable, Method),
+#               values_from = contributes, names_sep = &quot; - &quot;, values_fill = &quot;&quot;) |&gt;
+#   arrange(Model) |&gt;
+#   kable(caption = &quot;Models currently contributing to each term/method&quot;) |&gt;
+#   kable_styling(full_width = FALSE) |&gt;
+#   scroll_box(width = &quot;100%&quot;)</code></pre>
 </div>
 <div id="time-series---individual-models" class="section level1">
 <h1>5. Time series - individual models</h1>
@@ -3566,28 +2279,43 @@ year_periods &lt;- tibble(Year = 1960:2025) |&gt;
   pivot_longer(starts_with(&quot;period&quot;), values_to = &quot;Period&quot;, values_drop_na = TRUE) |&gt;
   select(Year, Period)
 
-decadal &lt;- mmm |&gt;
+# Spread across models requires each model&#39;s OWN decadal mean first -
+# mmm has already collapsed across models, so we go back to
+# derived_long (the pre-multi-model-mean data) rather than mmm.
+model_decadal &lt;- derived_long |&gt;
   inner_join(year_periods, by = &quot;Year&quot;, relationship = &quot;many-to-many&quot;) |&gt;
+  group_by(Variable, Method, Period, Model) |&gt;
+  summarise(Model_Mean = mean(Value, na.rm = TRUE), .groups = &quot;drop&quot;)
+
+decadal &lt;- model_decadal |&gt;
   group_by(Variable, Method, Period) |&gt;
-  summarise(Mean = mean(Value, na.rm = TRUE), .groups = &quot;drop&quot;) |&gt;
+  summarise(
+    Mean = mean(Model_Mean, na.rm = TRUE),
+    SD = sd(Model_Mean, na.rm = TRUE),
+    n_models = sum(!is.na(Model_Mean)),
+    .groups = &quot;drop&quot;
+  ) |&gt;
   mutate(Period = factor(Period, levels = period_levels)) |&gt;
   arrange(Variable, Method, Period)
 
 decadal_table &lt;- decadal |&gt;
-  pivot_wider(names_from = Period, values_from = Mean) |&gt;
+  mutate(cell = if_else(n_models &gt;= 2,
+                         sprintf(&quot;%.2f +/- %.2f&quot;, Mean, SD),
+                         sprintf(&quot;%.2f (n=1)&quot;, Mean))) |&gt;
+  select(Variable, Method, Period, cell) |&gt;
+  pivot_wider(names_from = Period, values_from = cell) |&gt;
   arrange(Variable, Method)
 
 row_group_sizes &lt;- rle(decadal_table$Variable)
 pack_index &lt;- setNames(row_group_sizes$lengths, row_group_sizes$values)
 
 decadal_table |&gt;
-  mutate(across(where(is.numeric), ~round(.x, 2))) |&gt;
-  kable(caption = &quot;Decadal mean multi-model mean (PgC/yr)&quot;) |&gt;
+  kable(caption = &quot;Decadal mean multi-model mean +/- 1 sigma across models (PgC/yr)&quot;) |&gt;
   kable_styling(full_width = FALSE) |&gt;
   pack_rows(index = pack_index)</code></pre>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-Decadal mean multi-model mean (PgC/yr)
+Decadal mean multi-model mean +/- 1 sigma across models (PgC/yr)
 </caption>
 <thead>
 <tr>
@@ -3597,25 +2325,25 @@ Variable
 <th style="text-align:left;">
 Method
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
 1960s
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
 1970s
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
 1980s
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
 1990s
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
 2000s
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
 2010s
 </th>
-<th style="text-align:right;">
+<th style="text-align:left;">
 2016-2025
 </th>
 </tr>
@@ -3633,26 +2361,26 @@ CO2 fertilisation
 <td style="text-align:left;">
 Method 1
 </td>
-<td style="text-align:right;">
-1.40
+<td style="text-align:left;">
+1.40 +/- 0.27
 </td>
-<td style="text-align:right;">
-2.00
+<td style="text-align:left;">
+2.00 +/- 0.42
 </td>
-<td style="text-align:right;">
-2.71
+<td style="text-align:left;">
+2.71 +/- 0.58
 </td>
-<td style="text-align:right;">
-3.00
+<td style="text-align:left;">
+3.00 +/- 0.69
 </td>
-<td style="text-align:right;">
-3.52
+<td style="text-align:left;">
+3.52 +/- 0.85
 </td>
-<td style="text-align:right;">
-3.94
+<td style="text-align:left;">
+3.94 +/- 1.00
 </td>
-<td style="text-align:right;">
-4.27
+<td style="text-align:left;">
+4.27 +/- 1.14
 </td>
 </tr>
 <tr>
@@ -3662,26 +2390,26 @@ CO2 fertilisation
 <td style="text-align:left;">
 Method 2
 </td>
-<td style="text-align:right;">
-1.06
+<td style="text-align:left;">
+1.06 +/- 0.20
 </td>
-<td style="text-align:right;">
-1.55
+<td style="text-align:left;">
+1.55 +/- 0.31
 </td>
-<td style="text-align:right;">
-2.06
+<td style="text-align:left;">
+2.06 +/- 0.42
 </td>
-<td style="text-align:right;">
-2.36
+<td style="text-align:left;">
+2.36 +/- 0.51
 </td>
-<td style="text-align:right;">
-2.75
+<td style="text-align:left;">
+2.75 +/- 0.61
 </td>
-<td style="text-align:right;">
-3.12
+<td style="text-align:left;">
+3.12 +/- 0.72
 </td>
-<td style="text-align:right;">
-3.36
+<td style="text-align:left;">
+3.36 +/- 0.80
 </td>
 </tr>
 <tr grouplength="2">
@@ -3696,26 +2424,26 @@ Climate effect
 <td style="text-align:left;">
 Method 1
 </td>
-<td style="text-align:right;">
--0.20
+<td style="text-align:left;">
+-0.20 +/- 0.36
 </td>
-<td style="text-align:right;">
-0.02
+<td style="text-align:left;">
+0.02 +/- 0.73
 </td>
-<td style="text-align:right;">
--1.01
+<td style="text-align:left;">
+-1.01 +/- 0.71
 </td>
-<td style="text-align:right;">
--0.58
+<td style="text-align:left;">
+-0.58 +/- 0.42
 </td>
-<td style="text-align:right;">
--0.74
+<td style="text-align:left;">
+-0.74 +/- 0.47
 </td>
-<td style="text-align:right;">
--0.74
+<td style="text-align:left;">
+-0.74 +/- 0.60
 </td>
-<td style="text-align:right;">
--1.03
+<td style="text-align:left;">
+-1.03 +/- 0.72
 </td>
 </tr>
 <tr>
@@ -3725,26 +2453,26 @@ Climate effect
 <td style="text-align:left;">
 Method 2
 </td>
-<td style="text-align:right;">
--0.13
+<td style="text-align:left;">
+-0.13 +/- 0.24
 </td>
-<td style="text-align:right;">
-0.05
+<td style="text-align:left;">
+0.05 +/- 0.61
 </td>
-<td style="text-align:right;">
--0.84
+<td style="text-align:left;">
+-0.84 +/- 0.55
 </td>
-<td style="text-align:right;">
--0.49
+<td style="text-align:left;">
+-0.49 +/- 0.30
 </td>
-<td style="text-align:right;">
--0.55
+<td style="text-align:left;">
+-0.55 +/- 0.34
 </td>
-<td style="text-align:right;">
--0.58
+<td style="text-align:left;">
+-0.58 +/- 0.44
 </td>
-<td style="text-align:right;">
--0.82
+<td style="text-align:left;">
+-0.82 +/- 0.56
 </td>
 </tr>
 <tr grouplength="2">
@@ -3759,26 +2487,26 @@ ELUC
 <td style="text-align:left;">
 Method 1
 </td>
-<td style="text-align:right;">
--1.65
+<td style="text-align:left;">
+-1.65 +/- 0.51
 </td>
-<td style="text-align:right;">
--1.63
+<td style="text-align:left;">
+-1.63 +/- 0.55
 </td>
-<td style="text-align:right;">
--1.59
+<td style="text-align:left;">
+-1.59 +/- 0.58
 </td>
-<td style="text-align:right;">
--1.80
+<td style="text-align:left;">
+-1.80 +/- 0.55
 </td>
-<td style="text-align:right;">
--1.83
+<td style="text-align:left;">
+-1.83 +/- 0.58
 </td>
-<td style="text-align:right;">
--1.86
+<td style="text-align:left;">
+-1.86 +/- 0.61
 </td>
-<td style="text-align:right;">
--1.68
+<td style="text-align:left;">
+-1.68 +/- 0.65
 </td>
 </tr>
 <tr>
@@ -3788,26 +2516,26 @@ ELUC
 <td style="text-align:left;">
 Method 2
 </td>
-<td style="text-align:right;">
--1.40
+<td style="text-align:left;">
+-1.40 +/- 0.34
 </td>
-<td style="text-align:right;">
--1.24
+<td style="text-align:left;">
+-1.24 +/- 0.33
 </td>
-<td style="text-align:right;">
--1.18
+<td style="text-align:left;">
+-1.18 +/- 0.32
 </td>
-<td style="text-align:right;">
--1.21
+<td style="text-align:left;">
+-1.21 +/- 0.30
 </td>
-<td style="text-align:right;">
--1.20
+<td style="text-align:left;">
+-1.20 +/- 0.29
 </td>
-<td style="text-align:right;">
--1.10
+<td style="text-align:left;">
+-1.10 +/- 0.30
 </td>
-<td style="text-align:right;">
--0.92
+<td style="text-align:left;">
+-0.92 +/- 0.32
 </td>
 </tr>
 <tr grouplength="2">
@@ -3822,26 +2550,26 @@ SLAND
 <td style="text-align:left;">
 Method 1
 </td>
-<td style="text-align:right;">
-1.20
+<td style="text-align:left;">
+1.20 +/- 0.43
 </td>
-<td style="text-align:right;">
-2.01
+<td style="text-align:left;">
+2.01 +/- 0.76
 </td>
-<td style="text-align:right;">
-1.70
+<td style="text-align:left;">
+1.70 +/- 0.85
 </td>
-<td style="text-align:right;">
-2.42
+<td style="text-align:left;">
+2.42 +/- 0.65
 </td>
-<td style="text-align:right;">
-2.78
+<td style="text-align:left;">
+2.78 +/- 0.74
 </td>
-<td style="text-align:right;">
-3.20
+<td style="text-align:left;">
+3.20 +/- 0.85
 </td>
-<td style="text-align:right;">
-3.24
+<td style="text-align:left;">
+3.24 +/- 0.95
 </td>
 </tr>
 <tr>
@@ -3851,26 +2579,26 @@ SLAND
 <td style="text-align:left;">
 Method 2
 </td>
-<td style="text-align:right;">
-0.97
+<td style="text-align:left;">
+0.97 +/- 0.28
 </td>
-<td style="text-align:right;">
-1.62
+<td style="text-align:left;">
+1.62 +/- 0.67
 </td>
-<td style="text-align:right;">
-1.28
+<td style="text-align:left;">
+1.28 +/- 0.65
 </td>
-<td style="text-align:right;">
-1.78
+<td style="text-align:left;">
+1.78 +/- 0.45
 </td>
-<td style="text-align:right;">
-2.07
+<td style="text-align:left;">
+2.07 +/- 0.49
 </td>
-<td style="text-align:right;">
-2.33
+<td style="text-align:left;">
+2.33 +/- 0.63
 </td>
-<td style="text-align:right;">
-2.36
+<td style="text-align:left;">
+2.36 +/- 0.72
 </td>
 </tr>
 </tbody>
