@@ -11,7 +11,7 @@
 
 <meta name="author" content />
 
-<meta name="date" content="2026-09-03" />
+<meta name="date" content="2026-09-07" />
 
 <title>TRENDY v15 - CO2 Fertilisation, Climate Effect and ELUC (Global)</title>
 
@@ -1812,7 +1812,7 @@ border-radius: 0px;
 <h1 class="title toc-ignore">TRENDY v15 - CO2 Fertilisation, Climate
 Effect and ELUC (Global)</h1>
 <h4 class="author"></h4>
-<h4 class="date">03 September 2026</h4>
+<h4 class="date">07 September 2026</h4>
 
 </div>
 
@@ -1874,17 +1874,6 @@ contributing to those averages is on an equal footing. Section 7.1 is
 the deliberate exception: it restricts to the RSS-delivering models
 only, so all three methods can be compared directly on that smaller,
 equal-footing subset.</p>
-<p>Not all models have delivered all simulations yet. Undelivered
-model-simulation series are stored as blank, or as a placeholder value
-of <strong>0 in every year</strong>. A genuine flux value can also
-legitimately be exactly 0 in an isolated year (e.g. VISIT S0 in 2000,
-where the North/Tropics/South regional values also sum to ~0) - so a
-global “treat every 0 as missing” rule would wrongly discard real
-data.</p>
-<p>Instead, an entire Model x Simulation series is only treated as
-not-yet-delivered (all <code>NA</code>) when <strong>every</strong>
-value in that series is 0 or blank. If a series has any genuine non-zero
-values, isolated zeros within it are kept as real data.</p>
 </div>
 <div id="configuration---file-path-simulations" class="section level1">
 <h1>2. Configuration - file path, simulations</h1>
@@ -1996,7 +1985,7 @@ rss_path &lt;- &quot;GCB2026_RSS_global.csv&quot;
 # are dropped, with a message noting so.
 rss_name_map &lt;- c(
   &quot;CABLE-POP&quot; = &quot;CABLE-POP&quot;, &quot;CLASSIC&quot;   = &quot;CLASSIC&quot;,  &quot;CLM6.0&quot;    = &quot;CLM6.0&quot;,
-  &quot;CLM-FATES&quot; = &quot;CLM-FATES&quot;, &quot;DLEM&quot;      = &quot;DLEM&quot;,      &quot;E3SM&quot;      = &quot;ELM&quot;,
+  &quot;CLM-FATES&quot; = &quot;CLM-FATES&quot;, &quot;DLEM&quot;      = &quot;DLEM&quot;,      &quot;E3SM&quot;      = &quot;E3SM&quot;,
   &quot;EDv3&quot;      = &quot;ED&quot;,        &quot;ELM-FATES&quot; = &quot;ELM-FATES&quot;, &quot;GDSTEM&quot;    = &quot;GDSTEM&quot;,
   &quot;IBIS&quot;      = &quot;IBIS&quot;,      &quot;iMAPLE&quot;    = &quot;iMAPLE&quot;,    &quot;ISAM&quot;      = &quot;ISAM&quot;,
   &quot;JSBACH&quot;    = &quot;JSBACH&quot;,    &quot;JULES&quot;  = &quot;JULES&quot;,     &quot;LPJ-EOSIM&quot; = &quot;LPJ-EOSIM&quot;,
