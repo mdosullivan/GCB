@@ -22380,7 +22380,7 @@
     "2024-07-25T15:40:27+00:00"
   ],
   [
-    "trendyv10-gcb2021/LPJ-GUESS/S0/LPJ-GUESS_S0_arh.nc",
+    "trendyv10-gcb2021/RSSLPJ-GUESS/S0/LPJ-GUESS_S0_arh.nc",
     37342134,
     "2024-07-25T15:40:39+00:00"
   ],
@@ -122803,11 +122803,6 @@
     "trendyv14-gcb2025/ELM/S3/E3SM_S3_tsl.nc",
     2897080311,
     "2025-09-03T03:12:20+00:00"
-  ],
-  [
-    "trendyv14-gcb2025/GCB2025_RSS_corrected_1850-2024_v2.nc",
-    1451706118,
-    "2026-07-16T16:24:12+00:00"
   ],
   [
     "trendyv14-gcb2025/IBIS/S0/.keep",
