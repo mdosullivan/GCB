@@ -174,8 +174,23 @@
     </p>
 
     <p>
-        On this page, you will find land (TRENDY) and ocean model output from the current and 
-        previous Global Carbon Budgets.
+        On this page, you will find land (TRENDY) and ocean model output from the current
+        Global Carbon Budget 2026 (<strong>TRENDY-GCB2026</strong>, trendyv15; <strong>ocean-GCB26</strong>)
+        and from previous Global Carbon Budgets, together with the TRENDY input (forcing) data
+        for GCB2025 and GCB2026.
+    </p>
+
+    <p>
+        TRENDY-GCB2026 extends the TRENDY simulation protocol from S0&ndash;S3 to S0&ndash;S6.
+        The new simulations S4 (transient land use only), S5 (transient CO₂ and land use, fixed climate)
+        and S6 (transient climate and land use, fixed CO₂) complement S1 (CO₂), S2 (CO₂ and climate)
+        and S3 (CO₂, climate and land use). In GCB2026 the land sink is estimated as
+        S_LAND = S3 &minus; (S4 &minus; S0) + &delta;L, where &delta;L is taken from the bookkeeping models;
+        see the GCB2026 paper for details.
+        The TRENDY-GCB2026 data set is documented in its Zenodo metadata record
+        (<a href="https://doi.org/10.5281/zenodo.23561904" target="_blank">doi:10.5281/zenodo.23561904</a>),
+        which includes the documentation, file manifest, model credits and variable list.
+        The gridded model output itself is downloaded from this page.
     </p>
 
     <h3>Terms of Data Use</h3>
@@ -190,7 +205,7 @@
 
     <p>
         Our main objective is to make all data available to the wider scientific community.
-        For the most recent data set (<strong>TRENDY-GCB2025</strong> and <strong>ocean-GCB25</strong> used in Global Carbon Budget 2025),
+        For the most recent data set (<strong>TRENDY-GCB2026</strong> and <strong>ocean-GCB26</strong> used in Global Carbon Budget 2026),
         co-authorship of the contributing modellers depends on the importance of the TRENDY or GCB-ocean data in your study and must be discussed with the respective coordinators early in the process.
     </p>
     
@@ -211,20 +226,20 @@
     </p>
 
     <p>
-        If TRENDY-GCB2025 or GCB-ocean forms a significant part of a publication or conference presentation
+        If TRENDY-GCB2026 or GCB-ocean forms a significant part of a publication or conference presentation
         (whether or not it does will be a joint decision with the coordinators),
         the modelling groups and coordinators should be invited as co-authors, with sufficient lead time
         to allow meaningful input (minimum 3 weeks before submission; earlier engagement is encouraged).
     </p>
 
     <p>
-        If TRENDY or GCB-ocean results are only a minor component (for example, a figure showing the multi-model mean mean),
+        If TRENDY or GCB-ocean results are only a minor component (for example, a figure showing the multi-model mean),
         then it is sufficient to acknowledge the TRENDY or GCB-ocean projects (again, this should be agreed with the
         coordinators).
     </p>
     
     <p>
-    Please cite the relevant references:
+    Please cite all of the relevant references below, together with the individual model publications where appropriate:
    </p>
 
    <ul>
@@ -232,6 +247,12 @@
         TRENDY: Sitch et al., <em>Global Biogeochemical Cycles</em>, 2024, 
         <a href="https://doi.org/10.1029/2024GB008102" target="_blank">
         doi:10.1029/2024GB008102</a>
+    </li>
+    <li>
+        TRENDY-GCB2026 data set: O'Sullivan et al., TRENDY Land Model Output for the Global Carbon Budget,
+        version 15 (2026), Zenodo,
+        <a href="https://doi.org/10.5281/zenodo.23561904" target="_blank">
+        doi:10.5281/zenodo.23561904</a>
     </li>
     <li>
         The latest Global Carbon Budget paper 
@@ -245,6 +266,7 @@
         <br>
         <em>Updates: 
         <ul>
+          <li> November 2026: Released TRENDY-GCB2026 (trendyv15) model output and input data, and ocean-GCB26 data, used in Global Carbon Budget 2026.
           <li> June 2026: Added OCEAN-GCB2025 data.
           <li> May 2026: Added TRENDY-GCB2025 input data.
           <li> February 2026: Added trendyv13-gcb2024 data.
@@ -254,7 +276,7 @@
 </div>
     
     <div id="search-container">
-        <input type="text" id="search" placeholder="Search files (e.g., 'trendyv10 nbp')">
+        <input type="text" id="search" placeholder="Search files (e.g., 'trendyv15 nbp')">
         <button id="searchButton" onclick="filterFiles()">Search</button>
         <button id="searchModeToggle" onclick="toggleSearchMode()">Mode: OR</button>
     </div>
@@ -309,10 +331,10 @@
     cleanPath = cleanPath.replace('trendyv14-gcb2025-input/', '');
   } else if (cleanPath.startsWith('trendyv14-gcb2025/')) {
     cleanPath = cleanPath.replace('trendyv14-gcb2025/', '');
-  } else if (cleanPath.startsWith('trendyv14-gcb2026-input/')) {
-    cleanPath = cleanPath.replace('trendyv14-gcb2026-input/', '');
-  } else if (cleanPath.startsWith('trendyv14-gcb2026/')) {
-    cleanPath = cleanPath.replace('trendyv14-gcb2026/', '');
+  } else if (cleanPath.startsWith('trendyv15-gcb2026-input/')) {
+    cleanPath = cleanPath.replace('trendyv15-gcb2026-input/', '');
+  } else if (cleanPath.startsWith('trendyv15-gcb2026/')) {
+    cleanPath = cleanPath.replace('trendyv15-gcb2026/', '');
   } else if (cleanPath.startsWith('trendyv13-gcb2024/')) {
     cleanPath = cleanPath.replace('trendyv13-gcb2024/', '');
   } else if (cleanPath.startsWith('ocean-GCB25/')) {
